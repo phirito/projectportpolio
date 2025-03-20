@@ -1,31 +1,85 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
-import './styles.css'; // import the design file
+import { AnimatePresence } from 'framer-motion';
+import AnimatedSection from './animations/AnimatedSection.js'; 
+import './styles/styles.css';                     
+import AboutNav from './navigations/AboutNav.js';               
+import ProjectNav from './navigations/ProjectNav.js';           
+import ContactsNav from './navigations/ContactsNav.js';         
+import About from './content/About.js';
+import Project from './content/Project.js';
+import Contacts from './content/Contacts.js';
+import LoadingScreen from './components/LoadingScreen.js';
 
 const Portfolio = () => {
+  const [activeSection, setActiveSection] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isCollapsed, setIsCollapsed] = useState(false); // New state for collapsing
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+
+      // Delay setting the active section based on the hash
+      setTimeout(() => {
+        const hash = window.location.hash.substring(1);
+        if (hash) {
+          setActiveSection(hash);
+          setIsCollapsed(true); // Collapse when navigating via hash
+        }
+      }, 500); // Delay to ensure hero section is shown first
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  const handleNavClick = (sectionId) => {
+    setActiveSection(sectionId);
+    setTimeout(() => setIsCollapsed(true), 100); // Add slight delay for smoother animation
+  };
+
+  useEffect(() => {
+    if (!activeSection) {
+      setIsCollapsed(false); // Reset to original size when no section is active
+    }
+  }, [activeSection]);
+
+  if (isLoading) {
+    return <LoadingScreen />;
+  }
+
   return (
-    <div>
-      <header>
-        <h1>My Portfolio</h1>
-        <nav>
-          <a href="#about">About</a> | <a href="#projects">Projects</a> | <a href="#contact">Contact</a>
-        </nav>
-      </header>
-      <section id="about">
-        <h2>About Me</h2>
-        <p>I am a passionate developer specializing in modern web applications.</p>
-      </section>
-      <section id="projects">
-        <h2>Projects</h2>
-        <ul>
-          <li>Project One - A cool project.</li>
-          <li>Project Two - Another cool project.</li>
-        </ul>
-      </section>
-      <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: your.email@example.com</p>
-      </section>
+    <div className="portfolio-container">
+      <div className={`top-section ${isCollapsed ? 'collapsed' : ''}`}>
+        <div className="hero-section">
+          <div className="title-container">
+            <h1 className="name">Kenrick C. Driz</h1>
+            <h2 className="role">Phiritoku</h2>
+          </div>
+        </div>
+        <div className="main-navigation">
+          <ul>
+            <AboutNav handleNavClick={handleNavClick} />
+            <ProjectNav handleNavClick={handleNavClick} />
+            <ContactsNav handleNavClick={handleNavClick} />
+          </ul>
+        </div>
+      </div>
+      <AnimatePresence mode="wait" initial={false}>
+        {activeSection === 'about' ? (
+          <AnimatedSection key="about" className="content-section" style={{ overflowY: 'auto', height: '100vh' }}>
+            <About setActiveSection={setActiveSection} />
+          </AnimatedSection>
+        ) : activeSection === 'project' ? (
+          <AnimatedSection key="project" className="content-section" style={{ overflowY: 'auto', height: '100vh' }}>
+            <Project setActiveSection={setActiveSection} />
+          </AnimatedSection>
+        ) : activeSection === 'contacts' && (
+          <AnimatedSection key="contacts" className="content-section" style={{ overflowY: 'auto', height: '100vh' }}>
+            <Contacts setActiveSection={setActiveSection} />
+          </AnimatedSection>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
