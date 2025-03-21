@@ -50,7 +50,7 @@ const Portfolio = () => {
 
   return (
     <div className="portfolio-container">
-      <div className={`top-section ${isCollapsed ? 'collapsed' : ''}`}>
+      <div className={`top-section ${isCollapsed ? 'collapsed' : 'expanded'}`}>
         <div className="hero-section">
           <div className="title-container">
             <h1 className="name">Kenrick C. Driz</h1>
@@ -67,15 +67,15 @@ const Portfolio = () => {
       </div>
       <AnimatePresence mode="wait" initial={false}>
         {activeSection === 'about' ? (
-          <AnimatedSection key="about" className="content-section" style={{ overflowY: 'auto', height: '100vh' }}>
+          <AnimatedSection key="about" className="content-section">
             <About setActiveSection={setActiveSection} />
           </AnimatedSection>
         ) : activeSection === 'project' ? (
-          <AnimatedSection key="project" className="content-section" style={{ overflowY: 'auto', height: '100vh' }}>
+          <AnimatedSection key="project" className="content-section">
             <Project setActiveSection={setActiveSection} />
           </AnimatedSection>
         ) : activeSection === 'contacts' && (
-          <AnimatedSection key="contacts" className="content-section" style={{ overflowY: 'auto', height: '100vh' }}>
+          <AnimatedSection key="contacts" className="content-section">
             <Contacts setActiveSection={setActiveSection} />
           </AnimatedSection>
         )}

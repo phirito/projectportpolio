@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Project = ({ setActiveSection }) => (
-  <div>
+  <div className="content">
     <h2>My Projects</h2>
     <div className="projects-grid">
       <div className="project-card">

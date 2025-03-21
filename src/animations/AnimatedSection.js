@@ -6,22 +6,25 @@ const defaultVariants = {
     opacity: 0,
     y: 100,
     transition: {
-      duration: 0.6 // Increased duration
+      duration: 1.0, // Matches the top-section duration
+      delay: 0.2 // Add slight delay for synchronization
     }
   },
   visible: { 
     opacity: 1,
     y: 0,
     transition: {
-      duration: 1.0, // Increased duration
-      ease: "easeOut"
+      duration: 1.5, // Matches the top-section duration
+      ease: "easeOut",
+      delay: 0.2 // Add slight delay for synchronization
     }
   },
   exit: { 
     opacity: 0,
     y: 100,
     transition: {
-      duration: 0.6 // Increased duration
+      duration: 1.0, // Matches the top-section duration
+      delay: 0.2 // Add slight delay for synchronization
     }
   }
 };
