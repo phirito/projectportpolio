@@ -130,7 +130,26 @@ body {
     text-align: center;
     font-size: 14px;
     color: #d4a017;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
+
+.footer-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.footer-logo {
+  height: 24px;
+  width: 24px;
+  display: inline-block;
+  vertical-align: middle;
+  object-fit: cover;
+}
 
 /* Back Button */
 .back-button {

@@ -11,6 +11,7 @@ import About from './content/About.js';
 import Project from './content/Project.js';
 import Contacts from './content/Contacts.js';
 import LoadingScreen from './components/LoadingScreen.js';
+import logo from './images/logo1.png'; // Add this import at the top
 
 const Portfolio = () => {
   const [activeSection, setActiveSection] = useState(null);
@@ -92,7 +93,15 @@ const Portfolio = () => {
         )}
       </AnimatePresence>
       <footer className="footer">
-        <p className="footer-text">Developed By: Kenrick Driz | ©2025</p>
+        <p className="footer-text">
+          Developed By: 
+          <img 
+            src={logo} 
+            alt="Logo" 
+            className="footer-logo"
+          /> 
+          Kenrick Driz | ©2025
+        </p>
       </footer>
     </div>
   );
