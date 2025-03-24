@@ -5,7 +5,7 @@ const About = ({ setActiveSection }) => (
   <div className="content">
     <div className="intro">
       <h3 className="intro-text">
-        Hi, I'm Kenrick, a frontend developer passionate about creating clean,
+        Hi, I'm a junior frontend developer passionate about creating clean,
         responsive, and user-friendly web experiences. I enjoy turning ideas into
         interactive designs using modern technologies. Let's connect and build
         something great!
@@ -27,12 +27,12 @@ const About = ({ setActiveSection }) => (
           <p>3+ months in web development</p>
         </div>
         <div className="carousel-box">
-          <h3>Education</h3>
-          <p>Computer Science Graduate</p>
+          <h3>Present</h3>
+          <p></p>
         </div>
         <div className="carousel-box">
-          <h3>Projects</h3>
-          <p>2+ Completed Projects</p>
+          <h3>Future</h3>
+          <p></p>
         </div>
       </div>
     </div>
