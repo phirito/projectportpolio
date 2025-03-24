@@ -6,9 +6,6 @@ const Contacts = ({ setActiveSection }) => (
     <p>Email: dkenrick11@gmail.com</p>
     <p>LinkedIn: linkedin.com/in/kenrickdriz</p>
     <p>GitHub: github.com/phirito</p>
-    <button onClick={() => setActiveSection(null)} className="back-button">
-      Back to Home
-    </button>
   </div>
 );
 

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
+import { topSectionTransition } from './animations/AnimatedSection.js';
 import AnimatedSection from './animations/AnimatedSection.js'; 
 import './styles/styles.css';                     
 import AboutNav from './navigations/AboutNav.js';               
@@ -34,8 +35,13 @@ const Portfolio = () => {
   }, []);
 
   const handleNavClick = (sectionId) => {
-    setActiveSection(sectionId);
-    setTimeout(() => setIsCollapsed(true), 100); // Add slight delay for smoother animation
+    if (activeSection === sectionId) {
+      setActiveSection(null);
+      setIsCollapsed(false); // Expand the hero if deactivated
+    } else {
+      setActiveSection(sectionId);
+      setTimeout(() => setIsCollapsed(true), 100); // Add slight delay for smoother animation
+    }
   };
 
   useEffect(() => {
@@ -50,13 +56,18 @@ const Portfolio = () => {
 
   return (
     <div className="portfolio-container">
-      <div className={`top-section ${isCollapsed ? 'collapsed' : 'expanded'}`}>
+     <motion.div 
+        layout 
+        transition={topSectionTransition}
+        className={`top-section ${isCollapsed ? 'collapsed' : 'expanded'}`}
+      >
         <div className="hero-section">
           <div className="title-container">
             <h1 className="name">Kenrick C. Driz</h1>
             <h2 className="role">Phiritoku</h2>
           </div>
         </div>
+      
         <div className="main-navigation">
           <ul>
             <AboutNav handleNavClick={handleNavClick} />
@@ -64,7 +75,7 @@ const Portfolio = () => {
             <ContactsNav handleNavClick={handleNavClick} />
           </ul>
         </div>
-      </div>
+        </motion.div>
       <AnimatePresence mode="wait" initial={false}>
         {activeSection === 'about' ? (
           <AnimatedSection key="about" className="content-section">
@@ -80,6 +91,9 @@ const Portfolio = () => {
           </AnimatedSection>
         )}
       </AnimatePresence>
+      <footer className="footer">
+        <p className="footer-text">Developed By: Kenrick Driz | ©2025</p>
+      </footer>
     </div>
   );
 };

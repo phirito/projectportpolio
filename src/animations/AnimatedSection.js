@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+export const topSectionTransition = { duration: 0.75, ease: "easeInOut" };
+
 const defaultVariants = {
   hidden: { 
     opacity: 0,

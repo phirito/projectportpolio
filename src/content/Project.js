@@ -13,9 +13,6 @@ const Project = ({ setActiveSection }) => (
         <p></p>
       </div>
     </div>
-    <button onClick={() => setActiveSection(null)} className="back-button">
-      Back to Home
-    </button>
   </div>
 );
 

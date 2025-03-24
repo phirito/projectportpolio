@@ -7,11 +7,10 @@
 }
 
 body {
-  background-color: #e6e6e6;
+  background-color: #252525;
   overflow-x: hidden;
 }
 
-/* Loading Screen */
 .loading-screen {
   position: fixed;
   top: 0;
@@ -32,17 +31,14 @@ body {
   flex-direction: column;
   position: relative;
 }
-
-/* Hero Section with Name and Role */
 .hero-section {
   flex: 1;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   padding: 0 5%;
-  background-color: #e6e6e6;
+  background-color: #252525;
   min-height: 25vh;
-  transition: all 1s ease-in-out; /* Increased duration */
 }
 
 .title-container {
@@ -54,19 +50,18 @@ body {
   font-size: 2.5rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
-  color: #333;
+  color: #f3f0e9;
 }
 
 .role {
   font-size: 1.2rem;
   font-weight: 400;
-  color: #666;
+  color: #f3f0e9;
 }
 
-/* Navigation */
 .main-navigation {
   width: 100%;
-  background-color: #e6e6e6;
+  background-color: #252525;
   padding: 2rem 0;
   z-index: 10;
   transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -89,24 +84,24 @@ body {
   font-weight: 500;
   letter-spacing: 1px;
   transition: color 0.3s ease;
+  color: #f3f0e9;
 }
 
 .main-navigation a:hover,
 .main-navigation a.active {
-  color: #000;
+  color: #f3f0e9;
   font-weight: bold;
 }
 
 /* Content Sections */
 .content-section {
-  padding: 4rem 5%;
-  background-color: #ffffff;
+  padding: 2rem 5%;
+  background-color: #f3f0e9;
   min-height: calc(100vh - 60px);
   margin-top: 25vh;
 }
 
 .content-section h2 {
-  margin-bottom: 1.5rem;
   color: #333;
 }
 
@@ -129,6 +124,13 @@ body {
   margin-bottom: 1rem;
   color: #333;
 }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    font-size: 14px;
+    color: #d4a017;
+  }
 
 /* Back Button */
 .back-button {
