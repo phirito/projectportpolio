@@ -58,14 +58,16 @@
 
 .carousel-container {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
   gap: 20px;
   padding: 20px;
 }
 
 .carousel-box {
-  width: 250px;
-  height: 300px;
+  width: 80%;
+  max-width: 250px;
+  height: 200px;
   background-color: #0f4c46;
   border-radius: 15px;
   padding: 20px;
@@ -83,5 +85,17 @@
 
 .carousel-box:nth-child(3) {
   animation-delay: 1s;
+}
+
+@media screen and (min-width: 768px) {
+  .carousel-container {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .carousel-box {
+    width: 250px;
+    height: 300px;
+  }
 }
 
