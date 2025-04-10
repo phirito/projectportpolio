@@ -3,15 +3,17 @@ import ReactDOM from 'react-dom/client';
 import { AnimatePresence, motion } from 'framer-motion';
 import { topSectionTransition } from './animations/AnimatedSection.js';
 import AnimatedSection from './animations/AnimatedSection.js'; 
-import './styles/styles.css';                     
 import AboutNav from './navigations/AboutNav.js';               
 import ProjectNav from './navigations/ProjectNav.js';           
-import ContactsNav from './navigations/ContactsNav.js';         
+import ContactsNav from './navigations/ContactsNav.js';      
+import HeroSection from './content/main.js'     
 import About from './content/About.js';
 import Project from './content/Project.js';
 import Contacts from './content/Contacts.js';
 import LoadingScreen from './components/LoadingScreen.js';
-import logo from './images/logo1.png'; // Add this import at the top
+import logo from './images/logo1.png';
+import './styles/styles.css';   
+; 
 
 const Portfolio = () => {
   const [activeSection, setActiveSection] = useState(null);
@@ -57,18 +59,12 @@ const Portfolio = () => {
 
   return (
     <div className="portfolio-container">
-     <motion.div 
+      <motion.div 
         layout 
         transition={topSectionTransition}
         className={`top-section ${isCollapsed ? 'collapsed' : 'expanded'}`}
       >
-        <div className="hero-section">
-          <div className="title-container">
-            <h1 className="name">Kenrick C. Driz</h1>
-            <h2 className="role">Phiritoku</h2>
-          </div>
-        </div>
-      
+        <HeroSection /> {/* Replaced inline hero section */}
         <div className="main-navigation">
           <ul>
             <AboutNav handleNavClick={handleNavClick} />
@@ -76,7 +72,7 @@ const Portfolio = () => {
             <ContactsNav handleNavClick={handleNavClick} />
           </ul>
         </div>
-        </motion.div>
+      </motion.div>
       <AnimatePresence mode="wait" initial={false}>
         {activeSection === 'about' ? (
           <AnimatedSection key="about" className="content-section">
