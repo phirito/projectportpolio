@@ -18,20 +18,20 @@ import './styles/styles.css';
 const Portfolio = () => {
   const [activeSection, setActiveSection] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [isCollapsed, setIsCollapsed] = useState(false); // New state for collapsing
+  const [isCollapsed, setIsCollapsed] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
 
-      // Delay setting the active section based on the hash
+      
       setTimeout(() => {
         const hash = window.location.hash.substring(1);
         if (hash) {
           setActiveSection(hash);
-          setIsCollapsed(true); // Collapse when navigating via hash
+          setIsCollapsed(true); 
         }
-      }, 500); // Delay to ensure hero section is shown first
+      }, 500); 
     }, 100);
 
     return () => clearTimeout(timer);
@@ -40,16 +40,16 @@ const Portfolio = () => {
   const handleNavClick = (sectionId) => {
     if (activeSection === sectionId) {
       setActiveSection(null);
-      setIsCollapsed(false); // Expand the hero if deactivated
+      setIsCollapsed(false); 
     } else {
       setActiveSection(sectionId);
-      setTimeout(() => setIsCollapsed(true), 100); // Add slight delay for smoother animation
+      setTimeout(() => setIsCollapsed(true), 100); 
     }
   };
 
   useEffect(() => {
     if (!activeSection) {
-      setIsCollapsed(false); // Reset to original size when no section is active
+      setIsCollapsed(false); 
     }
   }, [activeSection]);
 
@@ -64,7 +64,7 @@ const Portfolio = () => {
         transition={topSectionTransition}
         className={`top-section ${isCollapsed ? 'collapsed' : 'expanded'}`}
       >
-        <HeroSection /> {/* Replaced inline hero section */}
+        <HeroSection /> {}
         <div className="main-navigation">
           <ul>
             <AboutNav handleNavClick={handleNavClick} />
