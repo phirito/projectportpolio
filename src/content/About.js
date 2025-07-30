@@ -95,6 +95,10 @@ const About = ({ setActiveSection }) => (
             <p>Bootstrap</p>
           </div>
           <div className="skill-item">
+            <img src="/images/git_logo.png" alt="Git" className="skill-logo" />
+            <p>Git</p>
+          </div>
+          <div className="skill-item">
             <img src="/images/photoshop_logo.png" alt="Photoshop" className="skill-logo" />
             <p>Photoshop</p>
           </div>
@@ -106,8 +110,7 @@ const About = ({ setActiveSection }) => (
             <img src="/images/figma_logo.png" alt="Figma" className="skill-logo" />
             <p>Figma</p>
           </div>
-          {/* Duplicate set for seamless animation */}
-          
+         
         </div>
       </div>
     </div>
